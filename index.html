@@ -1,3 +1,67 @@
-<html>
-<h1>TEST</h1>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spruce Normalizer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
+    .logo {
+      max-width: 150px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      margin: 0.5rem 0;
+      font-size: 2rem;
+    }
+    p {
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .download-btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      background: #007acc;
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Logo app" class="logo">
+    <h1>Spruce Normalizer</h1>
+    <p>
+      Un'app per normalizzare file audio MP3 e WAV usando ffmpeg, 
+      con interfaccia grafica semplice e veloce.
+    </p>
+    <a href="https://github.com/tuonomeutente/spruce-normalizer/releases/latest/download/SpruceNormalizer-win.zip" class="download-btn">⬇️ Windows</a>
+    <a href="https://github.com/tuonomeutente/spruce-normalizer/releases/latest/download/SpruceNormalizer-mac.zip" class="download-btn">🍏 macOS</a>
+    <a href="https://github.com/tuonomeutente/spruce-normalizer/releases/latest/download/SpruceNormalizer-linux.tar.gz" class="download-btn">🐧 Linux</a>
+  </div>
+</body>
 </html>
