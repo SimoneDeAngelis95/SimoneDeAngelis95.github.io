@@ -3,37 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spruce Normalizer</title>
+  <title>I software di Simone</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #121212;
+      color: #e0e0e0;
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       min-height: 100vh;
     }
+    header {
+      text-align: center;
+      margin: 3rem 1rem 2rem;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      color: #fff;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #bbb;
+      margin-top: 0.5rem;
+    }
     .container {
-      background: #fff;
+      background: #1e1e1e;
       border-radius: 12px;
       padding: 2rem;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
       max-width: 500px;
+      margin-bottom: 3rem;
     }
     .logo {
       max-width: 150px;
       margin-bottom: 1rem;
     }
-    h1 {
+    h2 {
       margin: 0.5rem 0;
       font-size: 2rem;
+      color: #fff;
     }
     p {
-      color: #555;
+      color: #ccc;
       margin-bottom: 1.5rem;
+      line-height: 1.4;
     }
     .download-btn {
       display: inline-block;
@@ -49,12 +67,23 @@
     .download-btn:hover {
       background: #005f99;
     }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin: 2rem 0;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Simone De Angelis</h1>
+    <p>Sviluppatore e musicista – qui puoi scaricare i miei software 🎸💻</p>
+  </header>
+
   <div class="container">
     <img src="logo.png" alt="Logo app" class="logo">
-    <h1>Spruce Normalizer</h1>
+    <h2>Spruce Normalizer</h2>
     <p>
       Un'app per normalizzare file audio MP3 e WAV usando ffmpeg, 
       con interfaccia grafica semplice e veloce.
@@ -63,5 +92,9 @@
     <a href="https://github.com/tuonomeutente/spruce-normalizer/releases/latest/download/SpruceNormalizer-mac.zip" class="download-btn">🍏 macOS</a>
     <a href="https://github.com/tuonomeutente/spruce-normalizer/releases/latest/download/SpruceNormalizer-linux.tar.gz" class="download-btn">🐧 Linux</a>
   </div>
+
+  <footer>
+    <p>© 2025 Simone De Angelis</p>
+  </footer>
 </body>
 </html>
