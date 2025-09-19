@@ -88,13 +88,44 @@
       Un'app per normalizzare file audio MP3 e WAV usando ffmpeg, 
       con interfaccia grafica semplice e veloce.
     </p>
-    <a href="https://github.com/tuonomeutente/spruce-normalizer/releases/latest/download/SpruceNormalizer-win.zip" class="download-btn">⬇️ Windows</a>
-    <a href="https://github.com/tuonomeutente/spruce-normalizer/releases/latest/download/SpruceNormalizer-mac.zip" class="download-btn">🍏 macOS</a>
-    <a href="https://github.com/tuonomeutente/spruce-normalizer/releases/latest/download/SpruceNormalizer-linux.tar.gz" class="download-btn">🐧 Linux</a>
+    <div id="downloads">Caricamento versioni...</div>
   </div>
 
   <footer>
-    <p>© 2025 Simone De Angelis</p>
+    <p>© <span id="year"></span> Simone De Angelis</p>
   </footer>
+
+  <script>
+    // anno automatico
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // carica l'ultima release da GitHub
+    fetch("https://api.github.com/repos/SimoneDeAngelis95/Spruce-Normalizer/releases/latest")
+      .then(response => response.json())
+      .then(data => {
+        const downloadsDiv = document.getElementById("downloads");
+        downloadsDiv.innerHTML = "";
+
+        const version = data.tag_name;
+
+        data.assets.forEach(asset => {
+          let label = "";
+          if (asset.name.toLowerCase().includes("win")) label = "⬇️ Windows";
+          else if (asset.name.toLowerCase().includes("mac")) label = "🍏 macOS";
+          else if (asset.name.toLowerCase().includes("linux")) label = "🐧 Linux";
+          else label = "📦 Download";
+
+          const a = document.createElement("a");
+          a.href = asset.browser_download_url;
+          a.className = "download-btn";
+          a.textContent = `${label} (${version})`;
+          downloadsDiv.appendChild(a);
+        });
+      })
+      .catch(err => {
+        document.getElementById("downloads").textContent = "Errore nel caricamento dei download.";
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
