@@ -124,8 +124,8 @@
 
         data.assets.forEach(asset => {
           let label = "";
-          if (asset.name.toLowerCase().includes("win")) label = "⬇️ Windows";
-          else if (asset.name.toLowerCase().includes("mac") or asset.name.toLowerCase().includes("arm")) label = "🍏 macOS";
+          if (asset.name.toLowerCase().includes("win") || asset.name.toLowerCase().includes("exe")) label = "⬇️ Windows";
+          else if (asset.name.toLowerCase().includes("mac") || asset.name.toLowerCase().includes("dmg")) label = "🍏 macOS";
           else if (asset.name.toLowerCase().includes("linux")) label = "🐧 Linux";
           else label = "📦 Download";
 
