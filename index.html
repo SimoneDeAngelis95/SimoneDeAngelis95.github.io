@@ -37,7 +37,13 @@
       text-align: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.5);
       max-width: 500px;
+      width: 100%;
       margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      min-height: 380px;
     }
     .logo {
       max-width: 150px;
@@ -96,13 +102,41 @@
   </header>
 
   <div class="container">
-    <img src="logo.png" alt="Logo app" class="logo">
+    <img src="resources/sprucenormalizer.png" alt="Logo app" class="logo">
     <h2>Spruce Normalizer</h2>
     <p>
-      An app to normalize MP3 and WAV audio files using ffmpeg.
+      An app to normalize MP3 and WAV audio files.
     </p>
-    <div id="downloads">Loading Versions...</div>
+    <div class="downloads" data-repo="SimoneDeAngelis95/Spruce-Normalizer">Loading Versions...</div>
     <a href="https://github.com/SimoneDeAngelis95/Spruce-Normalizer" class="github-btn">🌐 GitHub</a>
+  </div>
+
+  <div class="container">
+    <img src="resources/swampash.png" alt="Logo app" class="logo">
+    <h2>Swamp Ash MP3 Converter</h2>
+    <p>
+      An app that converts audio files from various formats to MP3.
+    </p>
+    <div class="downloads" data-repo="SimoneDeAngelis95/Swamp-Ash-MP3-Converter">Loading Versions...</div>
+    <a href="https://github.com/SimoneDeAngelis95/Swamp-Ash-MP3-Converter" class="github-btn">🌐 GitHub</a>
+  </div>
+
+  <div class="container">
+    <img src="resources/keepmeawake.png" alt="Logo app" class="logo">
+    <h2>Keep Me Awake</h2>
+    <p>
+      An app that prevents your Mac from going into sleep mode.
+    </p>
+    <div class="downloads" data-repo="SimoneDeAngelis95/Keep-Me-Awake">Loading Versions...</div>
+    <a href="https://github.com/SimoneDeAngelis95/Keep-Me-Awake" class="github-btn">🌐 GitHub</a>
+  </div>
+
+  <div class="container">
+    <h2>Murray MIDI Controller</h2>
+    <p>
+      Murray, the Arduino-based MIDI foot controller: not-so-evil, but powerful enough to command your pedals on stage.
+    </p>
+    <a href="https://github.com/SimoneDeAngelis95/Murray-MIDI-Controller" class="github-btn">🌐 GitHub</a>
   </div>
 
   <footer>
@@ -113,33 +147,43 @@
     // automatic year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // get last github release
-    fetch("https://api.github.com/repos/SimoneDeAngelis95/Spruce-Normalizer/releases/latest")
-      .then(response => response.json())
-      .then(data => {
-        const downloadsDiv = document.getElementById("downloads");
-        downloadsDiv.innerHTML = "";
+    const downloadSections = document.querySelectorAll(".downloads[data-repo]");
 
-        const version = data.tag_name;
+    const platformLabel = name => {
+      const lowered = name.toLowerCase();
+      if (lowered.includes("win") || lowered.includes("exe")) return "⬇️ Windows";
+      if (lowered.includes("mac") || lowered.includes("dmg")) return "🍏 macOS";
+      if (lowered.includes("linux")) return "🐧 Linux";
+      return "📦 Download";
+    };
 
-        data.assets.forEach(asset => {
-          let label = "";
-          if (asset.name.toLowerCase().includes("win") || asset.name.toLowerCase().includes("exe")) label = "⬇️ Windows";
-          else if (asset.name.toLowerCase().includes("mac") || asset.name.toLowerCase().includes("dmg")) label = "🍏 macOS";
-          else if (asset.name.toLowerCase().includes("linux")) label = "🐧 Linux";
-          else label = "📦 Download";
+    downloadSections.forEach(section => {
+      const repo = section.dataset.repo;
+      fetch(`https://api.github.com/repos/${repo}/releases/latest`)
+        .then(response => response.json())
+        .then(data => {
+          section.innerHTML = "";
 
-          const a = document.createElement("a");
-          a.href = asset.browser_download_url;
-          a.className = "download-btn";
-          a.textContent = `${label} (${version})`;
-          downloadsDiv.appendChild(a);
+          if (!data.assets || data.assets.length === 0) {
+            section.textContent = "Nessuna release disponibile";
+            return;
+          }
+
+          const version = data.tag_name || data.name || "latest";
+
+          data.assets.forEach(asset => {
+            const a = document.createElement("a");
+            a.href = asset.browser_download_url;
+            a.className = "download-btn";
+            a.textContent = `${platformLabel(asset.name)} (${version})`;
+            section.appendChild(a);
+          });
+        })
+        .catch(err => {
+          section.textContent = "Errore";
+          console.error(err);
         });
-      })
-      .catch(err => {
-        document.getElementById("downloads").textContent = "Error";
-        console.error(err);
-      });
+    });
   </script>
 </body>
 </html>
