@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I software di Simone</title>
+  <title>Simon's Corner</title>
   <style>
     body {
       font-family: "Segoe UI", Arial, sans-serif;
@@ -91,19 +91,18 @@
 </head>
 <body>
   <header>
-    <h1>Simone De Angelis</h1>
-    <p>Sviluppatore e musicista – qui puoi scaricare i miei software 🎸💻</p>
+    <h1>Simon's Corner</h1>
+    <p>👋 Hi! My name is Simone De Angelis, and welcome to Simon’s Corner.<br>Here you’ll find my software projects, all open source and freely available to download.<br>I hope they’ll be useful or inspiring to you — any feedback is always welcome and much appreciated.💻</p>
   </header>
 
   <div class="container">
     <img src="logo.png" alt="Logo app" class="logo">
     <h2>Spruce Normalizer</h2>
     <p>
-      Un'app per normalizzare file audio MP3 e WAV usando ffmpeg, 
-      con interfaccia grafica semplice e veloce.
+      An app to normalize MP3 and WAV audio files using ffmpeg.
     </p>
-    <div id="downloads">Caricamento versioni...</div>
-    <a href="https://github.com/SimoneDeAngelis95/Spruce-Normalizer" class="github-btn">🌐 Vai su GitHub</a>
+    <div id="downloads">Loading Versions...</div>
+    <a href="https://github.com/SimoneDeAngelis95/Spruce-Normalizer" class="github-btn">🌐 GitHub</a>
   </div>
 
   <footer>
@@ -111,10 +110,10 @@
   </footer>
 
   <script>
-    // anno automatico
+    // automatic year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // carica l'ultima release da GitHub
+    // get last github release
     fetch("https://api.github.com/repos/SimoneDeAngelis95/Spruce-Normalizer/releases/latest")
       .then(response => response.json())
       .then(data => {
@@ -138,7 +137,7 @@
         });
       })
       .catch(err => {
-        document.getElementById("downloads").textContent = "Errore nel caricamento dei download.";
+        document.getElementById("downloads").textContent = "Error";
         console.error(err);
       });
   </script>
