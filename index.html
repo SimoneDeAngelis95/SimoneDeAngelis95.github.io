@@ -48,6 +48,7 @@
   <script>
     const owner = "SimoneDeAngelis95";
     const projects = [
+      {repo:"Parallax-Stereo-Doubler",name:"Parallax",description:"Turns one signal into two temporal perspectives, adding stereo width, depth and movement without a conventional echo.",language:"C++",tags:["JUCE","VST3 / AU","Stereo"],color:"#e47b36",glyph:"PX",release:true},
       {repo:"Spruce-Normalizer",name:"Spruce Normalizer",description:"Makes MP3 and WAV files agree on how loud they should be. Podcasts are happier now.",language:"Python",tags:["PyQt6","FFmpeg","LUFS"],color:"#6dcf72",glyph:"SN",icon:"resources/project-icons/spruce-normalizer.png",release:true},
       {repo:"Swamp-Ash-MP3-Converter",name:"Swamp Ash",description:"Feeds on audio files and spits out tidy MP3s, complete with tags and adjustable bitrate.",language:"Python",tags:["PyQt6","FFmpeg","MP3"],color:"#e5a74e",glyph:"SA",icon:"resources/project-icons/swamp-ash.png",release:true},
       {repo:"Wattson-Battery-Monitor",name:"Wattson",description:"Shows the real battery percentage when macOS and a replacement battery stop understanding each other.",language:"Swift",tags:["SwiftUI","IOKit","macOS"],color:"#5e9bff",glyph:"W",icon:"resources/project-icons/wattson.png",release:true},
@@ -60,6 +61,7 @@
       {repo:"Simones-LibrePCB-Non-Polarized-THT-Capacitors",name:"LibrePCB THT Capacitors",description:"Non-polarized through-hole capacitors with common body sizes, verified footprints and matching 3D models.",language:"LibrePCB",tags:["THT","Capacitors","CC0"],color:"#d99b5e",glyph:"TC",icon:"resources/project-icons/librepcb-tht-capacitors.png"}
     ];
     const fallbackReleases = {
+      "Parallax-Stereo-Doubler": {tag_name:"V1.0.0",assets:[{name:"Parallax-1.0.0-macOS.pkg",browser_download_url:"https://github.com/SimoneDeAngelis95/Parallax-Stereo-Doubler/releases/download/V1.0.0/Parallax-1.0.0-macOS.pkg"},{name:"Parallax-1.0.0-Windows-x64-Setup.exe",browser_download_url:"https://github.com/SimoneDeAngelis95/Parallax-Stereo-Doubler/releases/download/V1.0.0/Parallax-1.0.0-Windows-x64-Setup.exe"}]},
       "Spruce-Normalizer": {tag_name:"V1.3.8",assets:[{name:"Spruce.Normalizer.V1.3.8.dmg",browser_download_url:"https://github.com/SimoneDeAngelis95/Spruce-Normalizer/releases/download/V1.3.8/Spruce.Normalizer.V1.3.8.dmg"}]},
       "Swamp-Ash-MP3-Converter": {tag_name:"V1.3.12",assets:[{name:"Swamp.Ash.MP3.Converter.V1.3.12.dmg",browser_download_url:"https://github.com/SimoneDeAngelis95/Swamp-Ash-MP3-Converter/releases/download/V1.3.12/Swamp.Ash.MP3.Converter.V1.3.12.dmg"}]},
       "Wattson-Battery-Monitor": {tag_name:"V1.0.0",assets:[{name:"Wattson-1.0.0.dmg",browser_download_url:"https://github.com/SimoneDeAngelis95/Wattson-Battery-Monitor/releases/download/V1.0.0/Wattson-1.0.0.dmg"}]},
